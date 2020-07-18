@@ -1,6 +1,6 @@
 # jim-bookmarks-app
 
-Live Page: https://thinkful-ei-quail.github.io/jim-bookmarks-app/
+Live Page: https://thinkful-ei-quail.github.io/jim-bookmarks-app/dist/index.html
 
 Stories Completed:
 * As a user I can add bookmarks to my bookmark list.
