@@ -166,10 +166,12 @@ button .itemButton {
     margin-right: 10px;
     border: thin black solid;
     border-radius: 5px;
+    color: black;
     background-color: rgb(230, 222, 222);
 }
 
 .icon:hover {
     background-color: silver;
+    color: black;
     box-shadow: 1px 1px 5px;
 }
