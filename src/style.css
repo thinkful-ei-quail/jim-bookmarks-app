@@ -26,6 +26,18 @@ div #wrapper {
     flex-direction: row;
 }
 
+#error {
+    background-color: lightpink;
+    border: medium solid red;
+    color: red;
+    padding: 0px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
 #buttons {
     display: flex;
     flex-direction: row;
@@ -137,4 +149,25 @@ button {
 
 .site-description {
     font-size: 1em;
+}
+
+.itemDelete {
+    background-color: purple;
+}
+
+button .itemButton {
+    width: 100px;
+    margin: auto;
+}
+
+.icon {
+    float: right;
+    border: thin black solid;
+    border-radius: 5px;
+    background-color: rgb(230, 222, 222);
+}
+
+.icon:hover {
+    background-color: silver;
+    box-shadow: 1px 1px 5px;
 }

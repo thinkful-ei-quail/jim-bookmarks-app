@@ -1,51 +1,20 @@
-//todo: TEMP TEST DATA  actual will be const bookmarks = [];
-const bookmarks = [
-  {
-    id: 'x56w',
-    title: 'Title 1',
-    rating: 3,
-    url: 'http://www.title1.com',
-    description: 'lorem ipsum dolor sit',
-    expanded: false
-  },
-  {
-    id: '6ffw',
-    title: 'Title 2',
-    rating: 5,
-    url: 'http://www.title2.com',
-    description: 'dolorum tempore deserunt',
-    expanded: true,
-  }, 
-  {
-    id: '6ff7',
-    title: 'Some Title',
-    rating: 4,
-    url: 'http://www.title3.com',
-    description: 'more lorem ipsum',
-    expanded: false
-  },
-  {
-    id: 'affw',
-    title: 'Another Title',
-    rating: 1,
-    url: 'http://www.amazon.com',
-    description: 'sit dolorum tempore deserunt',
-    expanded: false
-  },
-  {
-    id: '651w',
-    title: 'Some Title 2: The sequel',
-    rating: 2,
-    url: 'http://www.github.com',
-    description: 'tempore deserunt lorem ipsum',
-    expanded: false
-  },
-];
+import api from './api';
+
+const bookmarks = [];
+
 let adding = false;
 let error = null;
 let filter = 0;
-const MAX_STARS = 5; //really part of store?
+const MAX_STARS = 5;
 
+const addItem = function (bookmark) {
+  bookmarks.push(bookmark);
+};
+
+const findAndDelete = function (id) {
+  const index = bookmarks.findIndex(bookmark => bookmark.id === id);
+  bookmarks.splice(index, 1);
+};
 
 export default {
   bookmarks,
@@ -53,4 +22,6 @@ export default {
   error,
   filter,
   MAX_STARS,
+  addItem,
+  findAndDelete,
 };

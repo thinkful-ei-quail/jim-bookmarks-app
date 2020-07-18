@@ -5,9 +5,6 @@ import imgStarEmpty from './images/star-empty.png';
 const FILLED_STAR_ALT = 'Filled Rating Star';
 const EMPTY_STAR_ALT = 'Empty Rating Star';
 
-const store = {
-  currentRating: 0,
-};
 
 /**
  * Displays a read only star rating
@@ -41,51 +38,52 @@ function getRatingDisplay(maxStars, rating) {
  * @returns HTML div block with empty stars and event handler
  */
 function getRatingInput(maxStars, listener) {
-//function getRatingInput(maxStars) {
+  //reset rating
+  listener(1);
+
   let starRating = '<span id="star-rating-input" class="star-rating-input">';  // let starRating = '<div .starRatingContainer>' include div wrapper or let caller wrap as desired?  
   for(let i=0; i < maxStars; i++)
   {
-    starRating += `<span><input id=${i} class="star-button" type="image" src="${imgStarEmpty}" alt="${EMPTY_STAR_ALT}" onclick="return false" width="25px"></span>`;
+    starRating += `<span><input id=${i} class="star-button" type="image" src="${i===0? imgStarFilled : imgStarEmpty}" alt="${i===0 ? FILLED_STAR_ALT : EMPTY_STAR_ALT}" onclick="return false" width="25px"></span>`;
   }
   starRating += '</span>';
-
+  
   handleClickRating(listener);
-
   return starRating;  
 }
-
 
 
 const handleClickRating = function (listener) {
   $('body').on('click','.star-button', event => {
     event.preventDefault;
-    console.log("FIRING handleClickRating(listener)");
+    console.log('FIRING handleClickRating(listener)');
     let currentStar = event.currentTarget;
     let clickedRating = currentStar.id;
 
     //adjust rating from 0-based array index to 1-based human count
     const currentRating = parseInt(clickedRating) + 1;
-    store.set = true;
-    store.currentRating = currentRating;
 
     let allStars = $('.star-button');
     
     //clear stars in case lower rating (ie clicked 4 changed to 3)
-    //?TODO? why didn't this work? allStars.forEach(star => star.src = imgStarEmpty);
     for(let i=0; i < allStars.length; i++) {
       allStars[i].src = imgStarEmpty;
+      allStars[i].alt = EMPTY_STAR_ALT;
     }
     
-    //fill selected star and prior stars
+    //fill selected star and 'lower' stars
     currentStar.src = imgStarFilled;
+    currentStar.alt = FILLED_STAR_ALT;
     for(let i=0; i < clickedRating; i++) {
       allStars[i].src = imgStarFilled;
+      allStars[i].alt = FILLED_STAR_ALT;
     }
 
-    listener(store.currentRating);
-
+    //pass currentRating to listener
+    listener(currentRating);
   });
 };
+
 
 export default {
   getRatingDisplay,
