@@ -95,6 +95,7 @@ div, button, section {
 .expanded {
     background-color: brown;
     color: oldlace;
+    min-height: 30px;
 }
 
 button {
@@ -162,6 +163,7 @@ button .itemButton {
 
 .icon {
     float: right;
+    margin-right: 10px;
     border: thin black solid;
     border-radius: 5px;
     background-color: rgb(230, 222, 222);
