@@ -195,7 +195,7 @@ function getButtonsSection() {
   let section = `
     <section id="buttons">
       <button id="addView">+ New</button>
-      <select name="filter" id="filter" size="1">
+      <select name="filter" id="filter" size="1" aria-label="Filter">
         <option class="filterValue" value="0" selected>Filter by...</option>
         <option class="filterValue" value="1"><span class="star">★</span> Min</option>
         <option class="filterValue" value="2"><span class="star">★★</span> Min</option>
