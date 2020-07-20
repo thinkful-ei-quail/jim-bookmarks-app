@@ -157,7 +157,7 @@ function getAddView() {
         <h3>Add New Bookmark</h3>
         <div class="formInput">
           <label for="url">URL:</label>
-          <input type="url" name="url" id="url" placeholder="http://example.com" value="http://" required>
+          <input type="url" name="url" id="url" placeholder="http://example.com" required>
         </div>
         <div class="formInput">
           <label for="title">Title:</label>
