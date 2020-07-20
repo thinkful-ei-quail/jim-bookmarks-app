@@ -212,7 +212,9 @@ function getButtonsSection() {
 function getBookmarksListSection() {
   let section = `
     <section id="bookmarksList">
+      <ul>
         ${getBookmarks()}
+      </ul>
     </section>    
     `;
   return section;
@@ -237,6 +239,7 @@ function getBookmarks() {
 
 function getBookmarkDiv(bookmark) {
   return `
+        <li>
           <button id="${bookmark.id}" class="bookmark" data-bookmark-id="${bookmark.id}">
             <div class="title ${bookmark.expanded ? 'expanded':''}">
             <span>${bookmark.title}<span>
@@ -249,7 +252,8 @@ function getBookmarkDiv(bookmark) {
              <div class="visit-site"><a href="${bookmark.url}" target="_blank">Visit Site</a></div>
               <div class="site-description">${bookmark.desc}</div>
             </div>
-          </button>          
+          </button>
+        </li>          
     `; 
 }
 
